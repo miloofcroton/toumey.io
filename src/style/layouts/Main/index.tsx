@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from './Head';
 import Header from './Header';
 import Footer from './Footer';
 import Container from './Container';
@@ -18,10 +19,9 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
 }: LayoutProps) => {
   return (
     <Container>
-      <Header path={path} pageTitle={pageTitle} ogImage={ogImage} />
-
+      <Head title={pageTitle} ogImage={ogImage} />
+      <Header path={path} />
       <main>{children}</main>
-
       <Footer />
     </Container>
   );

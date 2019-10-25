@@ -33,7 +33,7 @@ const cardStyles = {
 };
 
 const HomePage: NextPage = () => (
-  <Layout pageTitle="Home | React: The Next(js) Generation">
+  <Layout pageTitle="Home">
     <div css={{
         label: 'hero',
         width: '100%',
