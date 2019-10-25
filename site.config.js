@@ -1,12 +1,12 @@
 module.exports = {
   siteMeta: {
-    title: 'React: The Next(js) Generation Blog',
-    author: 'Yours Truly',
+    title: 'toumey.io',
+    author: 'Jack Toumey',
     image: '/static/site-feature.png',
-    description: 'Next.js starter',
-    siteUrl: 'https://react-next-gen.now.sh',
+    description: 'My Personal Website for work, life, and random thoughts',
+    siteUrl: 'https://toumey.io',
     social: {
-      twitter: 'zeithq'
+      twitter: 'JackToumey'
     },
     postsPerPage: 5
   }
