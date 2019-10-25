@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { siteMeta } from '../../../../../../site.config';
 import PublishedAt from '../../published-at';
 import blogposts from '../../../../../services/blog/data/posts';
-import Layout from '../../../../../style/layouts/main';
+import Layout from '../../../../../style/layouts/Main';
 import SyntaxHighlight from './syntax-highlight';
 import NextPrevPost from './next-prev-post';
 

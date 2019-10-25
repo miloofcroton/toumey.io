@@ -2,7 +2,7 @@ import React from 'react';
 import { NextPage } from 'next';
 import Link from 'next/link';
 
-import Layout from 'style/layouts/main';
+import Layout from 'style/layouts/Main';
 import List from 'services/users/components/List';
 import { User } from 'services/users/data/types';
 import { fetchWrapper } from 'lib/data/fetch';

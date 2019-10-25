@@ -1,8 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 // import React from 'react';
-import Layout from 'style/layouts/main';
-import Button from '@material-ui/core/Button';
+import Layout from '../style/layouts/Main';
 import { NextPage } from 'next';
 
 const cardStyles = {
@@ -61,9 +60,7 @@ const HomePage: NextPage = () => (
         display: 'flex',
         flexDirection: 'column',
       }}>
-        <Button variant="contained" color="primary" css={{ alignSelf: 'center' }}>
-          Material UI enabled
-        </Button>
+
       </div>
 
       <div css={{
