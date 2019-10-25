@@ -15,7 +15,7 @@ const Statements = () => {
       <p>Copyright &copy; 2018. All rights reserved.</p>
       <a
         css={githubLinkStyles}
-        href="https://github.com/miloofcroton/gatsby-homepage"
+        href="https://github.com/miloofcroton/toumey.io"
       >
         This website
       </a>
