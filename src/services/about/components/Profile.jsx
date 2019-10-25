@@ -33,7 +33,7 @@ const Profile = () => (
         label: 'profile-note',
         marginBottom: 0,
       }}>
-        I'm a software developer &amp; web standards enthusiastic.
+        I'm a software developer &amp; functional programming enthusiast.
       </p>
     </div>
   </div>
