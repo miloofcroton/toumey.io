@@ -1,10 +1,10 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { mockUsers } from 'services/users/data/mocks';
+import { mockPosts } from '../../../services/play/data/mocks';
 
 export default (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const { id } = req.query;
-    const selected = mockUsers.find((data) => data.id === Number(id));
+    const selected = mockPosts.find((data) => data.id === Number(id));
 
     if (!selected) {
       throw new Error('Cannot find user');

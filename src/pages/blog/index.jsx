@@ -4,7 +4,7 @@ import _ from 'lodash';
 import Link from 'next/link';
 import pagination from 'pagination';
 import Layout from '../../style/layouts/Main';
-import Post from '../../services/blog/components/layouts/blog-index-item';
+import PostPreview from '../../services/blog/components/Preview/Card';
 import blogposts from '../../services/blog/data/posts';
 import { siteMeta } from '../../../site.config';
 
@@ -34,7 +34,7 @@ const Blog = ({ router, page = 1 }) => {
       {blogposts
         .filter((_post, index) => results.indexOf(index) > -1)
         .map((post, index) => (
-          <Post
+          <PostPreview
             key={index}
             title={post.title}
             summary={post.summary}

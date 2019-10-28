@@ -52,7 +52,7 @@ module.exports = withPlugins(
         config.entry = async () => {
           const entries = { ...(await originalEntry()) };
           // This script imports components from the Next app, so it's transpiled to `.next/server/scripts/build-rss.js`
-          entries['./src/services/blog/data/rss-feed.js'] = './src/services/blog/data/rss-feed.js';
+          entries['./src/services/blog/data/rssFeed.js'] = './src/services/blog/data/rssFeed.js';
           return entries;
         };
       }

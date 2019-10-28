@@ -1,7 +1,7 @@
-import { User } from 'services/users/data/types';
+import { Post } from './types';
 
 /** Dummy user data. */
-export const mockUsers: User[] = [
+export const mockPosts: Post[] = [
   { id: 101, name: 'Alice' },
   { id: 102, name: 'Bob' },
   { id: 103, name: 'Caroline' },

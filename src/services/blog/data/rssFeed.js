@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const fs = require('fs');
 const path = require('path');
-const posts = require('./get-blog-posts');
+const posts = require('./getPosts');
 const { siteMeta } = require('../../../../site.config');
 
 // https://jsonfeed.org/version/1
