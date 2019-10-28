@@ -1,15 +1,15 @@
 import React from 'react';
 import ListItem from './Item';
-import { Post } from '../../../../services/play/data/types';
+import { PostResponse } from '../../../../services/play/data/types';
 
 type Props = {
-  items: Post[];
+  items: PostResponse[];
 };
 
 const List: React.FunctionComponent<Props> = ({ items }) => (
   <ul>
     {items.map((item) => (
-      <li key={item.id}>
+      <li key={item.frontmatter.id}>
         <ListItem data={item} />
       </li>
     ))}

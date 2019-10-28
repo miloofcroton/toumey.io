@@ -15,19 +15,16 @@ tags:
 Post body here
 `;
 
+const id = shortid.generate();
+
 /**
  * first option is the directory under static
- * second option is the name of the file
  */
-
-if (process.argv[3]) {
-  fs.writeFile(
-    `./public/static/${process.argv[2]}/posts/${process.argv[3]}.md`,
-    template(shortid.generate()),
-    (err) => {
-      if (err) return console.log(err);
-      console.log('The file was saved!');
-    }
-  );
-}
-else console.log('Don\'t forget to name your file!');
+fs.writeFile(
+  `./public/static/${process.argv[2]}/posts/${id}.md`,
+  template(id),
+  (err) => {
+    if (err) return console.log(err);
+    console.log('The file was saved!');
+  }
+);

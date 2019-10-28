@@ -1,15 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
-import { Post } from '../../../../services/play/data/types';
+import { PostResponse } from '../../../../services/play/data/types';
 
 type Props = {
-  data: Post;
+  data: PostResponse;
 };
 
 const ListItem: React.FunctionComponent<Props> = ({ data }) => (
-  <Link href="/play/[id]" as={`/play/${data.id}`}>
+  <Link href="/play/[id]" as={`/play/${data.frontmatter.id}`}>
     <a>
-      {data.id}: {data.title}
+      {data.frontmatter.id}: {data.frontmatter.title}
     </a>
   </Link>
 );

@@ -33,8 +33,8 @@ const PlayPost: NextPage<PlayPostProps> = ({ item, errors }) => {
 
 PlayPost.getInitialProps = async ({ query }: NextPageContext) => {
   try {
-    const { slug } = query;
-    const item = await fetchJson(`http://localhost:${process.env.PORT}/api/play/${slug}`);
+    const { id } = query;
+    const item = await fetchJson(`http://localhost:${process.env.PORT}/api/play/${id}`);
     return { item };
   }
   catch (err) {

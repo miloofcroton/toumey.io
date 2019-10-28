@@ -10,7 +10,7 @@ const PreviewCard = ({ post }) => {
       padding: '1em',
       margin: '1em',
     }}>
-      <Link href={post.fields.slug}>
+      <Link href={post.fields.id}>
         <a css={{ textDecoration: 'none', color: 'inherit' }}>
           <h3 css={{ textDecoration: 'underline' }} >
             {post.frontmatter.title}

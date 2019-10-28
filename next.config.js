@@ -28,6 +28,7 @@ module.exports = withPlugins(
     env: {
       // this is how you get values from the '.env' files
       PORT: process.env.PORT,
+      ROOT: __dirname,
     },
     webpack: (config, { defaultLoaders, isServer, dev } ) => {
       // Fixes npm packages that depend on `fs` module

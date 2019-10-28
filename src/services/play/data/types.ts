@@ -1,5 +1,5 @@
 export interface PostFrontMatter {
-  id: number;
+  id: string;
   title: string;
   description?: string;
   tags?: Array<string>;
@@ -8,7 +8,7 @@ export interface PostFrontMatter {
 }
 
 export interface Post {
-  id: number;
+  id: string;
   title: string;
   description?: string;
   body?: string;
