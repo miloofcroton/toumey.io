@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { startClock, serverRenderClock } from 'services/clocks/data/actions';
-import Examples from '../../services/clocks/components/Examples';
+import { startClock, serverRenderClock } from 'servicesOld/clocks/data/actions';
+import Examples from '../../servicesOld/clocks/components/Examples';
 import Layout from 'style/layouts/Main';
 
 const UserIndex = ({ dispatch }) => {

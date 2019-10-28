@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 require('dotenv').config();
+const fs = require('fs');
 const withPlugins = require('next-compose-plugins');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
@@ -30,6 +31,31 @@ module.exports = withPlugins(
       PORT: process.env.PORT,
       ROOT: __dirname,
     },
+    exportTrailingSlash: true,
+
+    exportPathMap: async (
+      defaultPathMap,
+      { dev, dir, outDir, distDir, buildId }
+    ) => {
+
+      const pathMap = {
+        '/': { page: '/' },
+        '/about': { page: '/about' },
+        '/play': { page: '/play' },
+        // '/work': { page: '/work' },
+        // '/thoughts': { page: '/thoughts' },
+      };
+
+      const playFiles = await fs.readdirSync(`${__dirname}/src/assets/play/posts`);
+
+      playFiles.map((post) => {
+        const id = post.slice(0, -3);
+        pathMap[`/play/${id}`] = { page: '/play/[id]', query: { id: id } };
+      });
+
+      return pathMap;
+    },
+
     webpack: (config, { defaultLoaders, isServer, dev } ) => {
       // Fixes npm packages that depend on `fs` module
       config.node = {

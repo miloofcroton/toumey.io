@@ -1,7 +1,7 @@
 import React from 'react';
-import CarsOverview from 'services/cars/components/Overview';
+import CarsOverview from 'servicesOld/cars/components/Overview';
 import Layout from 'style/layouts/Main';
-import { mockCars } from 'services/cars/data/mocks';
+import { mockCars } from 'servicesOld/cars/data/mocks';
 
 const CarsPage = () => {
   return (

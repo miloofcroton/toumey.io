@@ -3,17 +3,15 @@ import { NextPage } from 'next';
 import Link from 'next/link';
 import Layout from '../../style/layouts/Main';
 import List from '../../services/play/components/List';
-import { Post } from '../../services/play/data/types';
+import { Post, PostResponse } from '../../services/play/data/types';
 import { fetchJson } from '../../lib/data/fetch';
 
 interface PlayIndexProps {
-  items: Post[];
+  items: PostResponse[];
   pathname: string;
 }
 
-const PlayIndex: NextPage<PlayIndexProps> = (props) => {
-  const { items, pathname } = props;
-  console.log(props);
+const PlayIndex: NextPage<PlayIndexProps> = ({ items, pathname }) => {
 
   return (
   <Layout pageTitle="Play">
@@ -34,13 +32,13 @@ const PlayIndex: NextPage<PlayIndexProps> = (props) => {
  * Example for including initial props in a Next.js function component page.
  * Don't forget to include the respective types for any props passed into the component. */
 PlayIndex.getInitialProps = async ({ pathname }) => {
-  const items: Post[] = await fetchJson(
+  const items: PostResponse[] = await fetchJson(
     `http://localhost:${process.env.PORT}/api/play`,
   );
 
-  console.log(items);
+  const initialProps: PlayIndexProps = { items, pathname };
 
-  return { items, pathname };
+  return initialProps;
 };
 
 export default PlayIndex;

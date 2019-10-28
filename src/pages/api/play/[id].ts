@@ -10,11 +10,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const { id } = req.query;
 
-    const item = fs.readFileSync(`${process.env.ROOT}/public/static/play/posts/${id}.md`);
+    // const item = fs.readFileSync(`${process.env.ROOT}/public/static/play/posts/${id}.md`);
+    const item = fs.readFileSync(`${process.env.ROOT}/src/assets/play/posts/${id}.md`);
 
     const parsedItem = parseMd(item);
 
-    if (!parsedItem) throw new Error('Cannot find user');
+    if (!parsedItem) throw new Error('Cannot find post');
 
     res.status(200).json(parsedItem);
   }
@@ -36,7 +37,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     const parsedItem = parseMd(item);
 
-    if (!parsedItem) throw new Error('Cannot find user');
+    if (!parsedItem) throw new Error('Cannot find post');
 
     res.status(200).send(parsedItem);
   }

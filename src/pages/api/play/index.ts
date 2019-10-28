@@ -9,10 +9,12 @@ import fs from 'fs';
 
 export default async (_: NextApiRequest, res: NextApiResponse) => {
   try {
-    const files = fs.readdirSync(`${process.env.ROOT}/public/static/play/posts`);
+    // const files = fs.readdirSync(`${process.env.ROOT}/public/static/play/posts`);
+    const files = fs.readdirSync(`${process.env.ROOT}/src/assets/play/posts`);
 
     const allPosts = files.map((file) => {
-      const item = fs.readFileSync(`${process.env.ROOT}/public/static/play/posts/${file}`);
+      // const item = fs.readFileSync(`${process.env.ROOT}/public/static/play/posts/${file}`);
+      const item = fs.readFileSync(`${process.env.ROOT}/src/assets/play/posts/${file}`);
       return parseMd(item);
     });
 
