@@ -1,9 +1,9 @@
 import React from 'react';
 import ListItem from './Item';
-import { User } from '../../../../services/users/data/types';
+import { Post } from '../../../../services/play/data/types';
 
 type Props = {
-  items: User[];
+  items: Post[];
 };
 
 const List: React.FunctionComponent<Props> = ({ items }) => (

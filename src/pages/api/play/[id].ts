@@ -1,6 +1,8 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { mockPosts } from '../../../services/play/data/mocks';
 
+
+
 export default (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const { id } = req.query;
