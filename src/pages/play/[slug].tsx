@@ -1,18 +1,19 @@
 import React from 'react';
 import { NextPage, NextPageContext } from 'next';
-import { Post } from '../../services/play/data/types';
+import { PostResponse } from '../../services/play/data/types';
 import Layout from '../../style/layouts/Main';
 import ListDetail from '../../services/play/components/Detail';
 import { fetchJson } from '../../lib/data/fetch';
 
 interface PlayPostProps {
-  item?: Post;
+  item?: PostResponse;
   errors?: string;
 };
 
-const PlayPost: NextPage<PlayPostProps> = (props) => {
+const PlayPost: NextPage<PlayPostProps> = ({ item, errors }) => {
 
-  const { item, errors } = props;
+  const { frontmatter } = item;
+  const post = item.body;
 
   if (errors) {
     return (
@@ -26,7 +27,7 @@ const PlayPost: NextPage<PlayPostProps> = (props) => {
 
   return (
     <Layout
-      pageTitle={`Play | ${ item ? item.title : 'Post'}`}
+      pageTitle={`Play | ${ post ? frontmatter.title : 'Post'}`}
     >
       {item && <ListDetail item={item} />}
     </Layout>
@@ -35,9 +36,10 @@ const PlayPost: NextPage<PlayPostProps> = (props) => {
 
 PlayPost.getInitialProps = async ({ query }: NextPageContext) => {
   try {
-    const { id } = query;
+    const { slug } = query;
     const item = await fetchJson(
-      `http://localhost:${process.env.PORT}/api/play/${Array.isArray(id) ? id[0] : id}`,
+      // `http://localhost:${process.env.PORT}/api/play/${Array.isArray(slug) ? slug[0] : slug}`,
+      `http://localhost:${process.env.PORT}/api/play/${slug}`,
     );
     return { item };
   }

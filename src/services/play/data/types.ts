@@ -1,4 +1,13 @@
-export type Post = {
+export interface PostFrontMatter {
+  id: number;
+  title: string;
+  description?: string;
+  tags?: Array<string>;
+  image?: string;
+  date?: string;
+}
+
+export interface Post {
   id: number;
   title: string;
   description?: string;
@@ -6,4 +15,9 @@ export type Post = {
   tags?: Array<string>;
   image?: string;
   date?: string;
+};
+
+export interface PostResponse {
+  frontmatter: PostFrontMatter;
+  body?: string;
 };

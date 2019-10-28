@@ -3,7 +3,7 @@ import { mockPosts } from '../../../services/play/data/mocks';
 
 // import html from 'remark-html';
 import { fetchMd } from '../../../lib/data/fetch';
-import { toHtml } from '../../../lib/data/remark';
+import { parseMd } from '../../../lib/data/remark';
 
 export default async (_: NextApiRequest, res: NextApiResponse) => {
   try {
@@ -19,14 +19,6 @@ export default async (_: NextApiRequest, res: NextApiResponse) => {
       fs.readFileSync('/src/assets/play/post1.md'),
       fs.readFileSync('/static/play/post1.md'),
     */
-
-    const item = await fetchMd(
-      `http://localhost:${process.env.PORT}/static/play/post1.md`,
-    );
-
-    const html = toHtml(item);
-
-    console.log(html);
 
     // console.log(__dirname);
     res.status(200).json(mockPosts);

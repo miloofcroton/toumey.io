@@ -1,25 +1,31 @@
 import React from 'react';
-import { Post } from '../../../../services/play/data/types';
-import { faTags } from '@fortawesome/free-solid-svg-icons';
+import { PostResponse } from '../../../../services/play/data/types';
 
 type ListDetailProps = {
-  item: Post;
+  item: PostResponse;
 };
 
 const ListDetail: React.FunctionComponent<ListDetailProps> = ({
-  item: post,
-}) => (
-  <article>
-    <h1>{post.title}</h1>
-    <small>{post.description}</small>
-    <br/>
-    <br/>
-    <div>{post.body}</div>
-    <br/>
-    tags: {post.tags.map((tag, index) => {
-      return (<a key={index}>{tag}</a>);
-    })}
-  </article>
-);
+  item,
+}) => {
+
+  const createMarkup = (body) => {
+    return { __html: body };
+  };
+
+  return (
+    <article>
+      <h1>{item.frontmatter.title}</h1>
+      <small>{item.frontmatter.description}</small>
+      <br/>
+      <br/>
+      <div dangerouslySetInnerHTML={createMarkup(item.body)}/>
+      <br/>
+      tags: {item.frontmatter.tags.map((tag, index) => {
+        return (<a key={index}>{tag}</a>);
+      })}
+    </article>
+  );
+};
 
 export default ListDetail;

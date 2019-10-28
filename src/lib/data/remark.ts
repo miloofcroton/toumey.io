@@ -1,28 +1,45 @@
 import unified from 'unified';
 import parse from 'remark-parse';
-import remark2rehype from 'remark-rehype';
-import doc from 'rehype-document';
-import format from 'rehype-format';
-import stringify from 'rehype-stringify';
+import mdToHtml from 'remark-rehype';
+// import doc from 'rehype-document';
+// import format from 'rehype-format';
+import html from 'rehype-stringify';
 import frontmatter from 'remark-frontmatter';
+import visit from 'unist-util-visit';
+import parseFrontmatter from 'remark-parse-yaml';
 
-export const toHtml = (md) => {
+const copyFrontmatter = () => (ast, file) => {
+  visit(ast, 'yaml', (item) => {
+    file.data.frontmatter = item.data.parsedValue;
+  });
+};
+
+const removeFrontmatter = () => (tree) => tree.filter((node) => node.type !== 'yaml');
+
+export const parseMd = (md) => {
 
   let res;
 
   unified()
     .use(parse)
-    .use(remark2rehype)
     // .use(doc) // this is if you want <html>, <body>, and <head>
-    .use(format)
-    .use(stringify, { quoteSmart: true })
+    // .use(format)
     .use(frontmatter, ['yaml'])
+    .use(parseFrontmatter)
+    .use(copyFrontmatter)
+    .use(mdToHtml)
+    .use(html, { quoteSmart: true })
     .process(
       md,
-      (err, file) => {
+      (err, file: { data: any; contents: any;}) => {
         if (err) throw err;
 
-        res = String(file);
+        res = {
+          frontmatter: file.data.frontmatter,
+          body: String(file.contents)
+        };
+
+        console.log(res);
       }
     );
 
