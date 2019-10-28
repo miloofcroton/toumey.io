@@ -12,9 +12,6 @@ interface PlayPostProps {
 
 const PlayPost: NextPage<PlayPostProps> = ({ item, errors }) => {
 
-  const { frontmatter } = item;
-  const post = item.body;
-
   if (errors) {
     return (
       <Layout pageTitle="Play | Error">
@@ -27,7 +24,7 @@ const PlayPost: NextPage<PlayPostProps> = ({ item, errors }) => {
 
   return (
     <Layout
-      pageTitle={`Play | ${ post ? frontmatter.title : 'Post'}`}
+      pageTitle={`Play | ${ item ? item.frontmatter.title : 'Post'}`}
     >
       {item && <ListDetail item={item} />}
     </Layout>
@@ -37,10 +34,7 @@ const PlayPost: NextPage<PlayPostProps> = ({ item, errors }) => {
 PlayPost.getInitialProps = async ({ query }: NextPageContext) => {
   try {
     const { slug } = query;
-    const item = await fetchJson(
-      // `http://localhost:${process.env.PORT}/api/play/${Array.isArray(slug) ? slug[0] : slug}`,
-      `http://localhost:${process.env.PORT}/api/play/${slug}`,
-    );
+    const item = await fetchJson(`http://localhost:${process.env.PORT}/api/play/${slug}`);
     return { item };
   }
   catch (err) {

@@ -19,5 +19,5 @@ export interface Post {
 
 export interface PostResponse {
   frontmatter: PostFrontMatter;
-  body?: string;
+  content: string;
 };

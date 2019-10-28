@@ -19,7 +19,7 @@ const ListDetail: React.FunctionComponent<ListDetailProps> = ({
       <small>{item.frontmatter.description}</small>
       <br/>
       <br/>
-      <div dangerouslySetInnerHTML={createMarkup(item.body)}/>
+      <div dangerouslySetInnerHTML={createMarkup(item.content)}/>
       <br/>
       tags: {item.frontmatter.tags.map((tag, index) => {
         return (<a key={index}>{tag}</a>);

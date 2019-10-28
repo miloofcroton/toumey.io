@@ -36,10 +36,8 @@ export const parseMd = (md) => {
 
         res = {
           frontmatter: file.data.frontmatter,
-          body: String(file.contents)
+          content: String(file.contents)
         };
-
-        console.log(res);
       }
     );
 

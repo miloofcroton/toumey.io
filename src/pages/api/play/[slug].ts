@@ -5,21 +5,12 @@ import { parseMd } from '../../../lib/data/remark';
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const { slug } = req.query;
-    // const selected = mockPosts.find((data) => data.slug === slug);
 
-    console.log(`http://localhost:${process.env.PORT}/static/play/${slug}.md`);
-
-    const item = await fetchMd(`http://localhost:${process.env.PORT}/static/play/${slug}.md`);
-
-    // console.log(item);
+    const item = await fetchMd(`http://localhost:${process.env.PORT}/static/play/posts/${slug}.md`);
 
     const parsedItem = parseMd(item);
 
-    console.log(parsedItem);
-
-    if (!parsedItem) {
-      throw new Error('Cannot find user');
-    }
+    if (!parsedItem) throw new Error('Cannot find user');
 
     res.status(200).send(parsedItem);
   }
