@@ -3,7 +3,7 @@ import { NextPage, NextPageContext } from 'next';
 import { Post } from '../../services/play/data/types';
 import Layout from '../../style/layouts/Main';
 import ListDetail from '../../services/play/components/Detail';
-import { fetchWrapper } from '../../lib/data/fetch';
+import { fetchJson } from '../../lib/data/fetch';
 
 interface PlayPostProps {
   item?: Post;
@@ -36,7 +36,7 @@ const PlayPost: NextPage<PlayPostProps> = (props) => {
 PlayPost.getInitialProps = async ({ query }: NextPageContext) => {
   try {
     const { id } = query;
-    const item = await fetchWrapper(
+    const item = await fetchJson(
       `http://localhost:${process.env.PORT}/api/play/${Array.isArray(id) ? id[0] : id}`,
     );
     return { item };

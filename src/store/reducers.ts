@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-// import { clocksReducer } from 'services/clocks/data/reducers';
+import { clocksReducer } from 'servicesOld/clocks/data/reducers';
 
 export default combineReducers({
-  // clocks: clocksReducer,
+  clocks: clocksReducer,
 });

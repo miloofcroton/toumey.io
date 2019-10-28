@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Layout from '../../style/layouts/Main';
 import List from '../../services/play/components/List';
 import { Post } from '../../services/play/data/types';
-import { fetchWrapper } from '../../lib/data/fetch';
+import { fetchJson } from '../../lib/data/fetch';
 
 interface PlayIndexProps {
   items: Post[];
@@ -34,9 +34,11 @@ const PlayIndex: NextPage<PlayIndexProps> = (props) => {
  * Example for including initial props in a Next.js function component page.
  * Don't forget to include the respective types for any props passed into the component. */
 PlayIndex.getInitialProps = async ({ pathname }) => {
-  const items: Post[] = await fetchWrapper(
+  const items: Post[] = await fetchJson(
     `http://localhost:${process.env.PORT}/api/play`,
   );
+
+  console.log(items);
 
   return { items, pathname };
 };
