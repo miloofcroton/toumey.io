@@ -1,11 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { mockPosts } from '../../../services/play/data/mocks';
-
-// import html from 'remark-html';
-import { fetchMd, fetchJson, fetchRaw } from '../../../lib/data/fetch';
-import { parseMd } from '../../../lib/data/remark';
-
 import fs from 'fs';
+import { parseMd } from '../../../lib/data/remark';
 
 export default async (_: NextApiRequest, res: NextApiResponse) => {
   try {

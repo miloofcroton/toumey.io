@@ -1,10 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { fetchMd } from '../../../lib/data/fetch';
-import { parseMd } from '../../../lib/data/remark';
-
 import fs from 'fs';
-import path from 'path';
-
+import { parseMd } from '../../../lib/data/remark';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   try {
@@ -27,7 +23,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
 /*
 
-this works via http. I think using fs is better though.
+this works via http. using fs is better because while this is fine for getting a post by id, it's much trickier to get all posts (how do you get an index for everything in static/play/posts? I don't control this api, so I don't think I can do it).
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   try {
