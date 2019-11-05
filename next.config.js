@@ -46,7 +46,7 @@ module.exports = withPlugins(
         // '/thoughts': { page: '/thoughts' },
       };
 
-      const playFiles = await fs.readdirSync(`${__dirname}/src/assets/play/posts`);
+      const playFiles = await fs.readdirSync(`${__dirname}/src/content/play/posts`);
 
       playFiles.map((post) => {
         const id = post.slice(0, -3);

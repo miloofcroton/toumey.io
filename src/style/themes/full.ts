@@ -1,7 +1,7 @@
 /* eslint-disable quotes */
 
 import { defaultThemeInput, ThemeInput, themeGen } from 'lib/theme/generator';
-// import background  from 'assets/images/backgrounds/main.jpg';
+// import background  from 'content/images/backgrounds/main.jpg';
 import { lighterGen } from 'lib/theme/color';
 
 const mainThemeInput: ThemeInput = {

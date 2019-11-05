@@ -76,7 +76,6 @@
     "@next/mdx": "^9.1.1",
     "dotenv": "^8.2.0",
     "emotion-theming": "^10.0.19",
-    "glob": "^7.1.5",
     "isomorphic-unfetch": "^3.0.0",
     "lodash": "^4.17.15",
     "mdx-prism": "^0.3.1",
@@ -98,7 +97,7 @@
     "remark-images": "^1.0.0",
     "remark-metadata": "^0.2.1",
     "remark-parse": "^7.0.1",
-    "remark-parse-yaml": "^0.0.3",
+    "remark-parse-yaml": "0.0.3",
     "remark-rehype": "^5.0.0",
     "unified": "^8.4.1",
     "unist-util-visit": "^2.0.0"
