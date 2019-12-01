@@ -15,7 +15,7 @@ let apolloClient = null;
  * @param {Object} [config]
  * @param {Boolean} [config.ssr=true]
  */
-export function withApollo(PageComponent, { ssr = true } = {}) {
+export const withApollo = (PageComponent, { ssr = true } = {}) => {
   const WithApollo = ({ apolloClient, apolloState, ...pageProps }) => {
     const client = apolloClient || initApolloClient(apolloState);
     return (
@@ -96,14 +96,14 @@ export function withApollo(PageComponent, { ssr = true } = {}) {
   }
 
   return WithApollo;
-}
+};
 
 /**
  * Always creates a new apollo client on the server
  * Creates or reuses apollo client in the browser.
  * @param  {Object} initialState
  */
-function initApolloClient(initialState) {
+const initApolloClient = (initialState) => {
   // Make sure to create a new client for every server-side request so that data
   // isn't shared between connections (which would be bad)
   if (typeof window === 'undefined') {
@@ -116,13 +116,13 @@ function initApolloClient(initialState) {
   }
 
   return apolloClient;
-}
+};
 
 /**
  * Creates and configures the ApolloClient
  * @param  {Object} [initialState={}]
  */
-function createApolloClient(initialState = {}) {
+const createApolloClient = (initialState = {}) => {
   const ssrMode = typeof window === 'undefined';
   const cache = new InMemoryCache().restore(initialState);
 
@@ -132,9 +132,9 @@ function createApolloClient(initialState = {}) {
     link: createIsomorphLink(),
     cache,
   });
-}
+};
 
-function createIsomorphLink() {
+const createIsomorphLink = () => {
   if (typeof window === 'undefined') {
     const { SchemaLink } = require('apollo-link-schema');
     const { schema } = require('./schema');
@@ -146,4 +146,4 @@ function createIsomorphLink() {
       credentials: 'same-origin',
     });
   }
-}
+};
