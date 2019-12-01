@@ -1,6 +1,6 @@
 import { withRouter } from 'next/router'
 import Link from 'next/link';
-import AboutPage from '../../services/about/components/Page'
+import Layout from '../../services/about/components/Layout'
 
 export const meta = {
   title: 'About',
@@ -9,9 +9,9 @@ export const meta = {
 }
 
 export default withRouter(({ children, router }) => (
-  <AboutPage path={router.pathname} meta={meta}>
+  <Layout path={router.pathname} meta={meta}>
     {children}
-  </AboutPage>
+  </Layout>
 ))
 
 This site is designed to be a single website that can house pretty much everything I want to publicly publish on the internet

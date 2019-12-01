@@ -8,18 +8,18 @@ interface LayoutProps {
   children: any;
   path?: any;
   pageTitle?: any;
-  ogImage?: any;
+  image?: any;
 }
 
 const Layout: React.FunctionComponent<LayoutProps> = ({
   path,
   children,
   pageTitle,
-  ogImage
+  image
 }: LayoutProps) => {
   return (
     <Container>
-      <Head title={pageTitle} ogImage={ogImage} />
+      <Head title={pageTitle} image={image} />
       <Header path={path} />
       <main>{children}</main>
       <Footer />

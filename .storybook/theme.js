@@ -1,5 +1,5 @@
 import { create } from '@storybook/theming';
-import logo from '../public/next-flat.png'
+import logo from '../public/static/logo/logo.png'
 
 export default create({
   base: 'dark',

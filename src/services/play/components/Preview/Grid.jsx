@@ -1,6 +1,4 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/core';
-// import React from 'react';
+import React from 'react';
 import Card from './Card';
 
 const PreviewGrid = ({ posts }) => {

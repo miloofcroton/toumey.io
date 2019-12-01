@@ -1,13 +1,11 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/core';
-// import React from 'react';
+import React from 'react';
 import List from '../services/home/components/List';
 import Layout from '../style/layouts/Main';
 
 const breakpoints = [700];
 
 const mq = breakpoints.map(
-  (bp) => `@media (min-width: ${bp}px)`
+  (bp) => `@media (max-width: ${bp}px)`
 );
 
 const Home = () => {

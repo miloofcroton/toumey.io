@@ -119,6 +119,7 @@
 		"react/prop-types": "off",
 		"react/react-in-jsx-scope": "error",
 		"react/display-name": "off",
-		"react/no-unescaped-entities": "off"
+		"react/no-unescaped-entities": "off",
+		"react/no-children-prop": "warn"
 	}
 }

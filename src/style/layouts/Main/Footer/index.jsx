@@ -1,8 +1,6 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/core';
-// import React from 'react';
+import React from 'react';
 import Logo from './Logo';
-import IconList from './IconList';
+import Icons from './Icons';
 import Statements from './Statements';
 
 const Footer = () => {
@@ -15,7 +13,7 @@ const Footer = () => {
     }}>
       <Logo />
       <Statements />
-      <IconList />
+      <Icons />
     </footer>
   );
 };

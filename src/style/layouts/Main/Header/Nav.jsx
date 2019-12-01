@@ -1,6 +1,4 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/core';
-// import React from 'react';
+import React from 'react';
 import Link from 'next/link';
 
 const linkStyles = (theme) => ({
@@ -19,14 +17,40 @@ const linkStyles = (theme) => ({
   }
 });
 
+const ROUTES = [
+  {
+    href: '/',
+    label: 'Home',
+  },
+  {
+    href: '/about',
+    label: 'About',
+  },
+  // {
+  //   href: '/play',
+  //   label: 'Play',
+  // },
+  // {
+  //   href: '/thoughts',
+  //   label: 'Thoughts',
+  // },
+];
+
 const Nav = () => {
 
   return (
     <nav css={{
       margin: '0px 0px 15px 0px',
     }}>
-      <Link href="/"><a css={linkStyles}>Home</a></Link>
-      <Link href="/about"><a css={linkStyles}>About</a></Link>
+      {
+        ROUTES.map((route, i) => (
+          <Link key={i} href={route.href} as={route.href}>
+            <a css={linkStyles}>
+              {route.label}
+            </a>
+          </Link>
+        ))
+      }
     </nav>
   );
 };

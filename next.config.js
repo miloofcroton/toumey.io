@@ -18,10 +18,13 @@ const mdxConfig = {
   ]
 };
 
+const withImages = require('next-images');
+
+
 module.exports = withPlugins(
   [
     [withMDX, mdxConfig],
-    // [withSass, sassConfig],
+    withImages,
   ],
   {
     // target: 'server' is necessary to export static files
@@ -33,28 +36,28 @@ module.exports = withPlugins(
     },
     exportTrailingSlash: true,
 
-    exportPathMap: async (
-      defaultPathMap,
-      { dev, dir, outDir, distDir, buildId }
-    ) => {
+    // exportPathMap: async (
+    //   defaultPathMap,
+    //   { dev, dir, outDir, distDir, buildId }
+    // ) => {
 
-      const pathMap = {
-        '/': { page: '/' },
-        '/about': { page: '/about' },
-        '/play': { page: '/play' },
-        // '/work': { page: '/work' },
-        // '/thoughts': { page: '/thoughts' },
-      };
+    //   const pathMap = {
+    //     '/': { page: '/' },
+    //     '/about': { page: '/about' },
+    //     '/play': { page: '/play' },
+    //     // '/work': { page: '/work' },
+    //     // '/thoughts': { page: '/thoughts' },
+    //   };
 
-      const playFiles = await fs.readdirSync(`${__dirname}/src/content/play/posts`);
+    //   const playFiles = await fs.readdirSync(`${__dirname}/src/content/play/posts`);
 
-      playFiles.map((post) => {
-        const id = post.slice(0, -3);
-        pathMap[`/play/${id}`] = { page: '/play/[id]', query: { id: id } };
-      });
+    //   playFiles.map((post) => {
+    //     const id = post.slice(0, -3);
+    //     pathMap[`/play/${id}`] = { page: '/play/[id]', query: { id: id } };
+    //   });
 
-      return pathMap;
-    },
+    //   return pathMap;
+    // },
 
     webpack: (config, { defaultLoaders, isServer, dev } ) => {
       // Fixes npm packages that depend on `fs` module
@@ -73,16 +76,6 @@ module.exports = withPlugins(
           ]
         }
       );
-
-      if (isServer && !dev) {
-        const originalEntry = config.entry;
-        config.entry = async () => {
-          const entries = { ...(await originalEntry()) };
-          // This script imports components from the Next app, so it's transpiled to `.next/server/scripts/build-rss.js`
-          entries['./src/services/blog/data/rssFeed.js'] = './src/services/blog/data/rssFeed.js';
-          return entries;
-        };
-      }
 
       if (config.resolve.plugins) {
         config.resolve.plugins.push(new TsconfigPathsPlugin());

@@ -2,7 +2,7 @@ import React from 'react';
 import App from 'next/app';
 
 // Redux
-import withReduxStore from '../lib/components/Shell/withReduxStore';
+import withReduxStore from '../lib/components/shell/withReduxStore';
 import { Provider } from 'react-redux';
 
 // Emotion

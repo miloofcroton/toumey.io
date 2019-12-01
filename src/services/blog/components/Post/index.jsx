@@ -1,6 +1,4 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/core';
-// import React from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { siteMeta } from '../../../../../site.config';
 import PublishedAt from '../published-at';
@@ -17,7 +15,7 @@ const BlogPost = ({ path, meta, children }) => {
   const nextPost = blogposts[currentPostIndex - 1];
 
   return (
-    <Layout pageTitle={meta.title} ogImage={meta.image}>
+    <Layout pageTitle={meta.title} image={meta.image}>
       <SyntaxHighlight />
       <article className="h-entry" css={{
         marginBottom: '2em'

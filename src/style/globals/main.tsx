@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/core';
+import React from 'react';
 import { Global, css } from '@emotion/core';
 
 const GlobalStyle = () => (
@@ -10,14 +9,14 @@ const GlobalStyle = () => (
 
         @import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono');
 
-        /* #__next {
+        #__next {
           display: flex;
           flex-direction: column;
           height: 100vh;
           justify-content: space-between;
           text-align: center;
           margin: 0px;
-        } */
+        }
 
         html {
           box-sizing: border-box;

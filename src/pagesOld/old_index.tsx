@@ -1,6 +1,4 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/core';
-// import React from 'react';
+import React from 'react';
 import Layout from '../style/layouts/Main';
 import { NextPage } from 'next';
 
