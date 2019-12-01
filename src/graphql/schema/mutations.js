@@ -1,5 +1,5 @@
 import { GraphQLObjectType, GraphQLBoolean } from 'graphql';
-import * as itemMutations from './testData/items/mutations';
+import * as itemMutations from '../../services/items/data/mutations';
 // import * as thingMutations from '../../resources/things/graphql/mutations';
 // import * as userMutations from '../../resources/users/graphql/mutations';
 // import * as messageMutations from '../../resources/messages/graphql/mutations';

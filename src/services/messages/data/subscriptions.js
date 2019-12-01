@@ -1,6 +1,6 @@
 // import EVENTS from '../../../app/graphql/events';
 // import pubsub from '../../../app/lib/pubsub';
-import { MessageCreated } from './messagesObjects';
+import { MessageCreated } from './objects';
 
 export const  messageCreated = {
   type: MessageCreated,

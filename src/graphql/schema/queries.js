@@ -1,5 +1,5 @@
 import { GraphQLObjectType, GraphQLBoolean } from 'graphql';
-import * as itemQueries from './testData/items/queries';
+import * as itemQueries from '../../services/items/data/queries';
 // import * as thingQueries from '../../resources/things/graphql/queries';
 // import * as userQueries from '../../resources/users/graphql/queries';
 // import * as messageQueries from '../../resources/messages/graphql/queries';

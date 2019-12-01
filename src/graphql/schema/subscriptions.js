@@ -1,5 +1,5 @@
 import { GraphQLObjectType, GraphQLBoolean } from 'graphql';
-import * as messageSubscriptions from './testData/messages/subscriptions';
+import * as messageSubscriptions from '../../services/messages/data/subscriptions';
 
 const subscriptions = new GraphQLObjectType({
   name: 'RootSubscriptions',
