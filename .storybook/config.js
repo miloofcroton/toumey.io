@@ -18,6 +18,11 @@ import requireContext from 'require-context.macro';
 //   return allExports;
 // };
 
+// look at this later:
+// function importAll(r) {
+//   return r.keys().map(r)
+// }
+
 // This works, however...
 // const req = require.context('../src', true, /.stories.(j|t)sx$/);
 // const libraryDocs = require.context('./docs', true, /.stories.(j|t)sx$/);
