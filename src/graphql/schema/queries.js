@@ -1,5 +1,6 @@
 import { GraphQLObjectType, GraphQLBoolean } from 'graphql';
 import * as itemQueries from '../../services/items/data/queries';
+import * as playQueries from '../../services/play/data/queries';
 // import * as thingQueries from '../../resources/things/graphql/queries';
 // import * as userQueries from '../../resources/users/graphql/queries';
 // import * as messageQueries from '../../resources/messages/graphql/queries';
@@ -13,6 +14,7 @@ const queries = new GraphQLObjectType({
   fields: () => ({
     _: { name: '_', type: GraphQLBoolean },
     ...itemQueries,
+    ...playQueries,
     // ...thingQueries,
     // ...userQueries,
     // ...messageQueries,
