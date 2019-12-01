@@ -1,9 +1,9 @@
 import micro from 'micro';
-// import { NextApiRequest, NextApiResponse } from 'next';
+import { NextApiRequest, NextApiResponse } from 'next';
 import fs from 'fs';
 import { parseMd } from '../../../lib/data/remark';
 
-export default micro(async (req, res) => {
+export default micro(async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const { id } = req.query;
 
