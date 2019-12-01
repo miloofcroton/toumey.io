@@ -2,7 +2,7 @@ import micro from 'micro';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { mockItems } from '../../../services/items/data/mocks';
 
-export default micro(async (req: NextApiRequest, res: NextApiResponse) => {
+const handler = micro(async (req: NextApiRequest, res: NextApiResponse) => {
   const { id } = req.query;
 
   try {
@@ -12,3 +12,5 @@ export default micro(async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(500).json({ statusCode: 500, message: err.message });
   }
 });
+
+export default handler;

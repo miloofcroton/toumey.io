@@ -3,7 +3,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import fs from 'fs';
 import { parseMd } from '../../../lib/data/remark';
 
-export default micro(async (req: NextApiRequest, res: NextApiResponse) => {
+const handler = micro(async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const { id } = req.query;
 
@@ -19,3 +19,5 @@ export default micro(async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(404).json({ statusCode: 404, message: err.message });
   }
 });
+
+export default handler;

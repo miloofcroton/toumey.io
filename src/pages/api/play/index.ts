@@ -3,7 +3,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import fs from 'fs';
 import { parseMd } from '../../../lib/data/remark';
 
-export default micro(async (req: NextApiRequest, res: NextApiResponse) => {
+const handler = micro(async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const folders = fs.readdirSync(`${process.env.ROOT}/src/content/play`);
 
@@ -18,3 +18,5 @@ export default micro(async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(500).json({ statusCode: 500, message: err.message });
   }
 });
+
+export default handler;
